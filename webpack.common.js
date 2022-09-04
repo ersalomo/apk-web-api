@@ -7,10 +7,11 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
+  // watch: true,
   module: {
     rules: [
       {
-        test: /\.(css)$/,
+        test: /\.css$/,
         use: [
           {
             loader: "style-loader",
@@ -24,7 +25,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "./src/template.html"),
+      template: "./src/template.html",
       filename: "index.html",
     }),
   ],

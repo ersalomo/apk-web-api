@@ -2,13 +2,16 @@
   "name": "tugas-submission-fe",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start-dev": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "watch": "webpack --watch"
   },
-  "keywords": [],
+  "keywords": [
+    "belajar",
+    "webpack"
+  ],
   "author": "ersalomo <ersalomo2002@gmail.com>",
   "license": "ISC",
   "devDependencies": {
