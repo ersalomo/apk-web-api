@@ -2,12 +2,13 @@
   "name": "tugas-submission-fe",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "start-dev": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "watch": "webpack --watch"
   },
+  "keywords": [],
   "author": "ersalomo <ersalomo2002@gmail.com>",
   "license": "ISC",
   "devDependencies": {
@@ -24,6 +25,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.2.0",
+    "dotenv": "^16.0.2",
     "jquery": "^3.6.1",
     "regenerator-runtime": "^0.13.9"
   }
