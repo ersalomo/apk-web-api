@@ -9,7 +9,6 @@ class ListMovie extends HTMLElement {
   render() {
     this.setAttribute("class", "row");
     this.innerHTML = "";
-    // console.log(this._movies.results.length);
     this._movies.results.forEach((movie) => {
       const movieItemElement = document.createElement("item-movie");
       movieItemElement.movie = movie;

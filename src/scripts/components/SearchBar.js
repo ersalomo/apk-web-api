@@ -6,17 +6,16 @@ class SearchBar extends HTMLElement {
     this._clickEvent = event;
     this.render();
   }
-  get value() {
-    return this.querySelector("#search").value;
+  get word() {
+    return this.querySelector("input[type=search]").value;
   }
 
   render() {
     this.innerHTML = "";
+    this.setAttribute("class", "d-flex");
     this.innerHTML = `
-    <div class="d-flex" role="search">
-      <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
-      <button id="search class="btn btn-outline-success" type="submit">Search</button>
-    </div>
+      <input class="form-control" type="search" value="" placeholder="Search" aria-label="Search" />
+      <button id="search" class="btn btn-outline-success" type="submit">Search</button>
     `;
     this.querySelector("#search").addEventListener("click", this._clickEvent);
   }

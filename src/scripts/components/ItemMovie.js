@@ -7,18 +7,17 @@ class ItemMovie extends HTMLElement {
   render() {
     this.setAttribute("class", "col-xl-3 mt-3 col-md-4 col-sm-4 col-6");
     this.innerHTML = `
-            <div class="card">
+            <div class="card mh-75">
               <img
                 class="card-img-top img-fluid"
                 src="${ItemMovie.IMAGE_PATH}${this._movie.backdrop_path}"
-                alt="${this._movie.original_title}"
+                alt="${this._movie.original_title ?? this._movie.original_title}"
               />
               <div class="card-header">
-                <h5 class="card-title">${this._movie.original_title}</h5>
+                <h5 class="card-title">${this._movie.original_title ?? this._movie.name}</h5>
               </div>
               <div class="card-body">
-                <p class="card-text">${this._movie.overview}</p>
-                <p class="card-text text-dark">${this._movie.release_date}</p>
+              <button class="btn btn-outline-primary form-control">View detail</button>
               </div>
             </div>
           
