@@ -31,6 +31,4 @@ export default class DataMovie {
     const responseJson = await response.json();
     return await responseJson;
   }
-  // set increment or decrement
-  static async getPaginateMovies() {}
 }

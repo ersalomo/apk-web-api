@@ -12,7 +12,7 @@ module.exports = merge(common, {
           {
             loader: "babel-loader",
             options: {
-              presents: ["@babel/preset-env"],
+              presets: ["@babel/preset-env"],
             },
           },
         ],

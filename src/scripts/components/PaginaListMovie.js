@@ -1,4 +1,5 @@
 class PaginaListMovie extends HTMLElement {
+  static TOTAL_PAGES = 12;
   set paginateEvent(paginate) {
     this._paginate = paginate;
     this.render();
@@ -6,7 +7,7 @@ class PaginaListMovie extends HTMLElement {
   render() {
     this.innerHTML = "";
     this.classList.add("d-flex");
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= PaginaListMovie.TOTAL_PAGES; i++) {
       this.innerHTML += `
       <li class="page-item"><a class="page-link list" href="#">${i}</a></li>
       `;
