@@ -21,7 +21,7 @@ export default class DataMovie {
   }
 
   static async getMovie(movie_id) {
-    const response = await fetch(`${process.env.URL_PATH}/movie/${movie_id}?api_key=${this.API_KEY}`);
+    const response = await fetch(`${this.URL_PATH}/movie/${movie_id}?api_key=${this.API_KEY}`);
     const responseJson = response.json();
     return await responseJson;
   }

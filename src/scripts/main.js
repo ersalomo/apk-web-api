@@ -3,12 +3,15 @@ import "../styles/bootstrap.min.js";
 import "./components/ListMovie.js";
 import "./components/SearchBar.js";
 import "./components/PaginaListMovie.js";
+import "./components/DetailModalMovie.js";
 import DataMovie from "./data/DataMovie.js";
 
 const main = () => {
   const listMovieElement = document.querySelector("list-movie");
   const searchElement = document.querySelector("search-bar");
   const paginationListElement = document.querySelector("pagination-list-movie");
+  const detailModalMovie = document.querySelector("detail-modal-movie");
+  const modalMovie = document.querySelector("#modal-movie");
 
   const renderResult = async (movies) => {
     listMovieElement.movies = await movies;
@@ -17,26 +20,42 @@ const main = () => {
     listMovieElement.renderError(message);
   };
 
-  const onButtonSearchClicked = async () => {
-    const results = DataMovie.getSearchMovies(searchElement.word);
-    console.log(results);
-    renderResult(results);
-  };
   const onButtonPaginateClicked = async (e) => {
     const num = e.target.textContent;
-    const results = DataMovie.getMovies(num);
-    console.log(results);
+    const results = await DataMovie.getMovies(num);
     renderResult(results);
   };
-  paginationListElement.paginateEvent = onButtonPaginateClicked;
+  const onClickDetailMovie = async (e) => {
+    const id = e.target.value;
+    const movie = await DataMovie.getMovie(id);
+    detailModalMovie.movie = movie;
+    modalMovie.style.display = "block";
+  };
+  const closeModalMovie = () => {
+    modalMovie.style.display = "none";
+  };
+
+  let results, isClickSearch;
+  const onButtonSearchClicked = async () => {
+    if (searchElement.word === undefined) isClickSearch = true;
+    if (searchElement.word) {
+      results = await DataMovie.getSearchMovies(searchElement.word);
+      renderResult(results);
+    }
+  };
 
   try {
-    const results = DataMovie.getMovies();
-    renderResult(results);
+    if (!isClickSearch) {
+      results = DataMovie.getMovies();
+      renderResult(results);
+      isClickSearch = false;
+    }
   } catch (e) {
-    console.error(e);
     fallback(e);
   }
+  detailModalMovie.clickEvent = closeModalMovie;
+  listMovieElement.clickEvent = onClickDetailMovie;
+  paginationListElement.paginateEvent = onButtonPaginateClicked;
   searchElement.clickEvent = onButtonSearchClicked;
 };
 

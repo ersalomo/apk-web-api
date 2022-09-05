@@ -7,7 +7,8 @@ class SearchBar extends HTMLElement {
     this.render();
   }
   get word() {
-    return this.querySelector("input[type=search]").value;
+    const keyword = this.querySelector("input[type=search]").value;
+    return keyword;
   }
 
   render() {

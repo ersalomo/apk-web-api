@@ -1,2 +1,2 @@
-import main from "./scripts/main.js";
+import main from "./scripts/";
 document.addEventListener("DOMContentLoaded", main);

@@ -5,6 +5,9 @@ class ListMovie extends HTMLElement {
     this._movies = movies;
     this.render();
   }
+  set clickEvent(event) {
+    this._clickEvent = event;
+  }
 
   render() {
     this.setAttribute("class", "row");
@@ -12,6 +15,7 @@ class ListMovie extends HTMLElement {
     this._movies.results.forEach((movie) => {
       const movieItemElement = document.createElement("item-movie");
       movieItemElement.movie = movie;
+      movieItemElement.clickEvent = this._clickEvent;
       this.appendChild(movieItemElement);
     });
   }
